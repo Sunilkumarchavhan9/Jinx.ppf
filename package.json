@@ -1,13 +1,13 @@
 {
-  "name": "chanhdai.com",
+  "name": "jinx-portfolio",
   "version": "0.1.0",
   "description": "A minimal, pixel-perfect dev portfolio, component registry, and blog.",
-  "homepage": "https://chanhdai.com",
+  "homepage": "https://jinxdev-tau.vercel.app/",
   "license": "MIT",
   "author": {
-    "name": "Nguyen Chanh Dai",
-    "email": "dai@chanhdai.com",
-    "url": "https://github.com/ncdai"
+    "name": "Sunil Kumar Chavhan",
+    "email": "chavhansunilkumar753@gmail.com",
+    "url": "https://github.com/Sunilkumarchavhan9"
   },
   "contributors": [
     {
@@ -18,7 +18,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ncdai/chanhdai.com.git"
+    "url": "git+https://github.com/Sunilkumarchavhan9/Jinx.ppf.git"
   },
   "scripts": {
     "dev": "next dev -p 1408",

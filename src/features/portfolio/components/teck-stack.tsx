@@ -10,6 +10,27 @@ import { cn } from "@/lib/utils";
 import { TECH_STACK } from "../data/tech-stack";
 import { Panel, PanelContent, PanelHeader, PanelTitle } from "./panel";
 
+const ICON_SLUG: Record<string, string> = {
+  typescript: "typescript",
+  nodejs: "nodedotjs",
+  react: "react",
+  nextjs: "nextdotjs",
+  tailwindcss: "tailwindcss",
+  solidity: "solidity",
+  rust: "rust",
+  solana: "solana",
+  docker: "docker",
+  kubernetes: "kubernetes",
+  postgresql: "postgresql",
+  redis: "redis",
+  aws: "amazonwebservices",
+  "github-actions": "githubactions",
+};
+
+const ICON_COLOR: Record<string, string> = {
+  aws: "FF9900",
+};
+
 export function TeckStack() {
   return (
     <Panel id="stack">
@@ -26,6 +47,13 @@ export function TeckStack() {
       >
         <ul className="flex flex-wrap gap-4 select-none">
           {TECH_STACK.map((tech) => {
+            const slug = ICON_SLUG[tech.key] ?? tech.key;
+            const color = ICON_COLOR[tech.key];
+            const iconUrl = tech.iconUrl
+              ? tech.iconUrl
+              : color
+                ? `https://cdn.simpleicons.org/${slug}/${color}`
+                : `https://cdn.simpleicons.org/${slug}`;
             return (
               <li key={tech.key} className="flex">
                 <Tooltip>
@@ -36,34 +64,13 @@ export function TeckStack() {
                       rel="noopener noreferrer"
                       aria-label={tech.title}
                     >
-                      {tech.theme ? (
-                        <>
-                          <Image
-                            src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}-light.svg`}
-                            alt={`${tech.title} light icon`}
-                            width={32}
-                            height={32}
-                            className="hidden [html.light_&]:block"
-                            unoptimized
-                          />
-                          <Image
-                            src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}-dark.svg`}
-                            alt={`${tech.title} dark icon`}
-                            width={32}
-                            height={32}
-                            className="hidden [html.dark_&]:block"
-                            unoptimized
-                          />
-                        </>
-                      ) : (
-                        <Image
-                          src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}.svg`}
-                          alt={`${tech.title} icon`}
-                          width={32}
-                          height={32}
-                          unoptimized
-                        />
-                      )}
+                      <Image
+                        src={iconUrl}
+                        alt={`${tech.title} icon`}
+                        width={32}
+                        height={32}
+                        unoptimized
+                      />
                       <span className="sr-only">{tech.title}</span>
                     </a>
                   </TooltipTrigger>

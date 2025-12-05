@@ -5,7 +5,6 @@ import { Awards } from "@/features/portfolio/components/awards";
 import { Blog } from "@/features/portfolio/components/blog";
 import { Bookmarks } from "@/features/portfolio/components/bookmarks";
 import { Brand } from "@/features/portfolio/components/brand";
-import { Certifications } from "@/features/portfolio/components/certifications";
 import { Experiences } from "@/features/portfolio/components/experiences";
 import { GitHubContributions } from "@/features/portfolio/components/github-contributions";
 import { Overview } from "@/features/portfolio/components/overview";
@@ -61,9 +60,6 @@ export default function Page() {
         <Separator />
 
         <Awards />
-        <Separator />
-
-        <Certifications />
         <Separator />
 
         <Bookmarks />

@@ -14,6 +14,8 @@ export type TechStack = {
   title: string;
   /** Official website URL. */
   href: string;
+  /** Optional custom icon URL (overrides default resolution). */
+  iconUrl?: string;
   /** Category tags used for grouping/filtering. */
   categories: string[];
   /** If true, use theme-specific icons for dark/light mode. */

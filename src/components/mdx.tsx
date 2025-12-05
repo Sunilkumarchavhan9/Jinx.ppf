@@ -144,6 +144,12 @@ const components: MDXRemoteProps["components"] = {
   ),
   YouTubeEmbed,
   FramedImage,
+  video: (props: React.ComponentProps<"video">) => (
+    <div className="relative my-6">
+      <video className="w-full rounded-xl" controls {...props} />
+      <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/10" />
+    </div>
+  ),
 };
 
 const options: MDXRemoteProps["options"] = {

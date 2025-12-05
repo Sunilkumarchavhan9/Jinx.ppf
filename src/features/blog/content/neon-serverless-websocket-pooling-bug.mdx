@@ -1,0 +1,107 @@
+---
+title: "Bug Report: Neon Serverless WebSocket Pooling - Pool doesn't pass connectionString to internal connections"
+description: Deep dive into a critical bug in @neondatabase/serverless where Pool fails to pass connectionString to internal WebSocket clients, breaking Prisma queries.
+image: /neonweb.png
+createdAt: 2025-12-04
+updatedAt: 2025-12-04
+---
+
+I recently encountered a critical bug in `@neondatabase/serverless` that completely broke my Prisma integration. Here's what happened and how to identify if you're affected.
+
+## Environment
+
+- `@neondatabase/serverless`: 1.0.2
+- `@prisma/adapter-neon`: 7.0.1
+- `@prisma/client`: 7.0.1
+- Node.js: 25.2.1
+- OS: Windows
+
+## The Problem
+
+When using `Pool` from `@neondatabase/serverless` with WebSocket pooling enabled, the Pool constructor accepts a `connectionString` parameter but **does NOT pass it to internal connection clients** created by `Un.newClient()`.
+
+This causes all Prisma queries to fail with:
+
+```
+Error: No database host or connection string was set, and key parameters have default values
+(host: localhost, user: Admin, db: Admin, password: null).
+Is an environment variable missing?
+```
+
+## Code That Fails
+
+```typescript
+import { Pool, neonConfig } from "@neondatabase/serverless";
+import { PrismaNeon } from "@prisma/adapter-neon";
+import { PrismaClient } from "@prisma/client";
+import ws from "ws";
+
+neonConfig.webSocketConstructor = ws;
+neonConfig.pipelineConnect = "password";
+
+const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+const adapter = new PrismaNeon(pool);
+const prisma = new PrismaClient({ adapter });
+
+// Query fails - pool doesn't pass connectionString to internal clients
+await prisma.project.create({ data: { name: "test" } });
+```
+
+## Root Cause
+
+The issue lies in how `Pool` creates internal connections. When `Un.newClient()` is called, it creates new WebSocket connections **without inheriting the Pool's connectionString configuration**.
+
+Instead of using the provided `DATABASE_URL`, it falls back to default localhost parameters:
+
+- Host: `localhost`
+- User: Current system user (e.g., `Admin`)
+- Database: Current system user (e.g., `Admin`)
+- Password: `null`
+
+## Stack Trace
+
+```
+at kn.connect (node_modules/@neondatabase/serverless/index.mjs:1316:50)
+at Un.newClient (node_modules/@neondatabase/serverless/index.mjs:1118:85)
+at Un.connect (node_modules/@neondatabase/serverless/index.mjs:1115:1)
+at PrismaNeonAdapter.performIO (node_modules/@prisma/adapter-neon/dist/index.mjs:523:40)
+```
+
+## Expected vs Actual Behavior
+
+**Expected:** Pool should pass `connectionString` to all internal WebSocket connection clients created via `Un.newClient()`.
+
+**Actual:** Pool creates connections with default localhost parameters, completely ignoring the provided `connectionString`.
+
+## Impact
+
+This bug makes it **impossible to use Prisma with Neon Serverless WebSocket pooling** in its current state. Any application relying on this setup will experience complete database connectivity failure.
+
+## Video Demonstration
+
+I've documented this issue in detail. Watch the full demonstration:
+
+<video src="/Neaonsonsole.mp4" />
+
+You can also view the post on X (Twitter): [Watch on X →](https://x.com/FrostbytHitsuG/status/1996230953283555760)
+
+## Workarounds
+
+Until this is fixed in the upstream package, you may need to:
+
+1. Use direct connections instead of pooling
+2. Set connection parameters individually instead of using `connectionString`
+3. Wait for a patch from the Neon team
+
+## Reporting
+
+This issue needs to be reported to:
+
+- [@neondatabase/serverless GitHub repository](https://github.com/neondatabase/serverless)
+- Neon community forums
+
+If you're experiencing similar issues, please upvote and comment on the bug report to help prioritize a fix.
+
+---
+
+**Update:** If you've found a solution or workaround, please share it in the comments or reach out on [X @FrostbytHitsuG](https://x.com/FrostbytHitsuG).

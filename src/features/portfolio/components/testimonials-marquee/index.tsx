@@ -5,11 +5,18 @@ import {
   MarqueeItem,
 } from "@/components/kibo-ui/marquee";
 
-import { TESTIMONIALS_1, TESTIMONIALS_2 } from "../../data/testimonials";
+// Static testimonials removed per request; now we only show live X pulls.
+import { fetchXTestimonials } from "../../lib/fetch-x-posts";
 import { Panel } from "../panel";
 import { TestimonialItem } from "./testimonial-item";
 
-export function TestimonialsMarquee() {
+export async function TestimonialsMarquee() {
+  const primary = await fetchXTestimonials().catch(() => []);
+
+  if (!primary.length) {
+    return null;
+  }
+
   return (
     <Panel
       id="testimonials"
@@ -22,7 +29,7 @@ export function TestimonialsMarquee() {
         <MarqueeFade side="right" />
 
         <MarqueeContent>
-          {TESTIMONIALS_1.slice()
+          {primary
             .sort((a, b) => a.authorName.localeCompare(b.authorName))
             .map((item) => (
               <MarqueeItem
@@ -37,23 +44,7 @@ export function TestimonialsMarquee() {
 
       <div className="screen-line-before screen-line-after relative flex h-4 w-full" />
 
-      <Marquee>
-        <MarqueeFade side="left" />
-        <MarqueeFade side="right" />
-
-        <MarqueeContent direction="right">
-          {TESTIMONIALS_2.slice()
-            .sort((a, b) => a.authorName.localeCompare(b.authorName))
-            .map((item) => (
-              <MarqueeItem
-                key={item.url}
-                className="mx-0 h-full w-xs border-r border-edge"
-              >
-                <TestimonialItem {...item} />
-              </MarqueeItem>
-            ))}
-        </MarqueeContent>
-      </Marquee>
+      {/* Second marquee removed while showing only live X testimonials */}
     </Panel>
   );
 }

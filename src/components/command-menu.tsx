@@ -34,9 +34,9 @@ import { useSound } from "@/hooks/use-sound";
 import { trackEvent } from "@/lib/events";
 import { copyText } from "@/utils/copy";
 
-import { ChanhDaiMark, getMarkSVG } from "./chanhdai-mark";
-import { getWordmarkSVG } from "./chanhdai-wordmark";
 import { ComponentIcon, Icons } from "./icons";
+import { ChanhDaiMark, getMarkSVG } from "./sunil-mark";
+import { getWordmarkSVG } from "./sunil-wordmark";
 import { Button } from "./ui/button";
 import { Kbd, KbdGroup } from "./ui/kbd";
 import { Separator } from "./ui/separator";
@@ -96,7 +96,7 @@ const PORTFOLIO_LINKS: CommandLinkItem[] = [
     icon: Icons.project,
   },
   {
-    title: "Honors & Awards",
+    title: "Achievements",
     href: "/#awards",
     icon: Icons.award,
   },

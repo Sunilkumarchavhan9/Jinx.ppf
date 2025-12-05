@@ -27,20 +27,17 @@ export const MAIN_NAV: NavItem[] = [
     title: "Blog",
     href: "/blog",
   },
-  {
-    title: "Sponsors",
-    href: "/sponsors",
-  },
 ];
 
-export const GITHUB_USERNAME = "ncdai";
-export const SOURCE_CODE_GITHUB_REPO = "ncdai/chanhdai.com";
-export const SOURCE_CODE_GITHUB_URL = "https://github.com/ncdai/chanhdai.com";
+export const GITHUB_USERNAME = "Sunilkumarchavhan9";
+export const SOURCE_CODE_GITHUB_REPO = "Sunilkumarchavhan9/Jinx.ppf";
+export const SOURCE_CODE_GITHUB_URL =
+  "https://github.com/Sunilkumarchavhan9/Jinx.ppf";
 
-export const SPONSORSHIP_URL = "https://github.com/sponsors/ncdai";
+export const SPONSORSHIP_URL = "https://github.com/sponsors/Sunilkumarchavhan9";
 
 export const UTM_PARAMS = {
-  utm_source: "chanhdai.com",
+  utm_source: "jinx.pf",
   utm_medium: "referral",
   utm_campaign: "portfolio",
 };

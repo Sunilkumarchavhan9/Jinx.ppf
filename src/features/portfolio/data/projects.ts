@@ -2,263 +2,174 @@ import type { Project } from "../types/projects";
 
 export const PROJECTS: Project[] = [
   {
-    id: "react-wheel-picker",
-    title: "React Wheel Picker",
+    id: "link-bird",
+    title: "Link Bird – Automated LinkedIn Outreach Platform",
     period: {
-      start: "05.2025",
+      start: "2025",
+      end: "done",
     },
-    link: "https://react-wheel-picker.chanhdai.com",
+    link: "https://linkbird-kandid.vercel.app/",
     skills: [
-      "Open Source",
-      "React",
+      "Next.js",
       "TypeScript",
-      "Monorepo",
-      "Turborepo",
-      "pnpm-workspace",
-      "Package Publishing",
-      "NPM Registry",
-      "GitHub Actions",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "Prisma",
+      "Tailwind CSS",
+      "ShadCN/UI",
+      "Clerk Auth",
+      "Neon Tech",
+      "SaaS",
     ],
-    description: `iOS-like wheel picker for React with smooth inertia scrolling and infinite loop support. / Backed by [▲Vercel OSS Program](https://vercel.com/blog/summer-2025-oss-program#react-wheel-picker)
-- 📱 Natural touch scrolling with smooth inertia effect
-- 🖱️ Mouse drag and scroll support for desktop
-- 🔄 Infinite loop scrolling
-- 🎨 Unstyled components for complete style customization
-- ⚡️ Easy installation via shadcn CLI
-`,
-    logo: "https://assets.chanhdai.com/images/project-logos/react-wheel-picker.svg",
+    description: `Built a production-ready SaaS for LinkedIn automation using Next.js and TypeScript, handling 1000+ lead operations safely without bans.
+
+- Elevated user engagement by 25% & reduced bounce rate by 30% through the delivery of a clean, responsive UI using Tailwind CSS & ShadCN/UI, resulting in a 20% improvement in conversion rates within a rapid development cycle
+- Integrated PostgreSQL backend with Prisma and Drizzle ORM, improving query performance by 75%
+
+[GitHub Repository](https://github.com/Sunilkumarchavhan9/linkbird--kandid-assignment-)`,
     isExpanded: true,
   },
   {
-    id: "chanhdaidotcom",
-    title: "chanhdai.com",
+    id: "v0-draw",
+    title: "V(0)Draw – Real-Time Collaborative Drawing Platform",
     period: {
-      start: "01.2025",
+      start: "2025",
     },
-    link: "https://github.com/ncdai/chanhdai.com",
+    link: "https://github.com/Sunilkumarchavhan9/V-0--draw",
     skills: [
-      "Open Source",
-      "Next.js 16",
-      "Tailwind CSS v4",
-      "Radix UI",
-      "Motion",
-      "shadcn/ui",
-      "Component Registry",
+      "Canvas API",
+      "WebSockets",
+      "Express.js",
+      "AWS",
+      "Kubernetes",
+      "Splunk",
+      "ELK Stack",
+      "Grafana",
+      "Real-time Collaboration",
+    ],
+    description: `Streamlined an interactive real-time drawing platform utilizing WebSockets & Canvas API to enhance user collaboration & engagement among participants.
+
+- Reduced latency by 40% and improved response time by 100ms with AWS + Kubernetes orchestration
+- Orchestrated monitoring with Splunk, ELK Stack, & Grafana, achieving a 20% reduction in system downtime & enhancing operational resilience`,
+    isExpanded: true,
+  },
+  {
+    id: "reimagined",
+    title: "Reimagined – Data Visualization Platform",
+    period: {
+      start: "2025",
+      end: "done",
+    },
+    link: "https://zchartscom.vercel.app/",
+    skills: [
+      "ZCharts",
+      "Data Visualization",
+      "Real-time Analytics",
+      "Interactive Dashboards",
+      "High-performance Charting",
+      "Dynamic Rendering",
+      "TypeScript",
       "Vercel",
     ],
-    description: `A minimal, pixel-perfect dev portfolio, component registry, and blog.
+    description: `Reimagined is a modern data-visualization platform built on top of ZCharts, designed to turn raw data into meaningful, interactive, and real-time insights.
 
-**Featured:**
+- Turn raw data into meaningful, interactive, and real-time insights
+- ZCharts-Powered Visuals built on a high-performance charting engine
+- Supports dynamic rendering and large datasets without lag
+- Offers configurable themes and styling for clean UI/UX
+- Real-time Analytics capabilities for tracking performance metrics and analyzing trends
 
-- Clean & modern design
-- Light/Dark themes
-- vCard integration
-- SEO optimized ([JSON-LD schema](https://json-ld.org), sitemap, robots)
-- AI-ready with [/llms.txt](https://llmstxt.org)
-- Spam-protected email
-- Installable as PWA
+[GitHub Repository](https://github.com/Sunilkumarchavhan9/Zcharts)`,
+    isExpanded: true,
+  },
+  {
+    id: "docstart",
+    title: "DocStart – Notion-Powered Documentation Platform",
+    period: {
+      start: "2025",
+    },
+    link: "https://doc-start-notion-powere-git-3515f1-sunilkumarchavhan9s-projects.vercel.app/",
+    skills: [
+      "Documentation",
+      "Notion API",
+      "Developer Tools",
+      "Markdown",
+      "Responsive Design",
+      "Changelog Management",
+      "FAQ System",
+      "Vercel",
+    ],
+    description: `DocStart is a modern, developer-centric documentation engine designed to help teams create polished docs, changelogs, and FAQs with the same elegance and structure seen in platforms like Vercel, Supabase, and Linear. It transforms raw content into clean, responsive, production-ready documentation with zero friction.
 
-**Blog:**
+DocStart makes it easy to:
 
-- Supports MDX & Markdown
-- Raw \`.mdx\` endpoints for AI readability
-- Syntax highlighting for clear code presentation
-- Dynamic OG images for rich link previews
-- RSS feed for easy content distribution
+- Generate beautiful documentation pages instantly
+- Create changelogs that highlight updates, fixes & new features
+- Build FAQs with grouped categories and smooth interactions
+- Maintain consistent branding & typography across all docs
+- Publish everything with a single command or deploy pipeline
 
-**Registry:**
+[GitHub Repository](https://github.com/Sunilkumarchavhan9/DocStart---Notion-Powered-Documentation-Platform)`,
+    isExpanded: true,
+  },
+  {
+    id: "kube-credential",
+    title: "Kube Credential – Kubernetes-Native Digital Credentials",
+    period: {
+      start: "2025",
+      end: "done",
+    },
+    link: "https://kube-credentials-1vitsbjx1-sunilkumarchavhan9s-projects.vercel.app/",
+    skills: [
+      "Kubernetes",
+      "Digital Credentials",
+      "Cloud Technologies",
+      "Security",
+      "Cryptography",
+      "Compliance",
+      "Backend",
+      "Frontend",
+      "Vercel",
+    ],
+    description: `Kube Credential is a secure, Kubernetes-native system for issuing and verifying digital credentials at scale. Designed for organizations that require high trust, automation, and reliability, it streamlines the entire credential lifecycle — from generation and storage to verification and auditing.
 
-- Easily build and distribute reusable components, hooks, and pages using a custom registry powered by the [shadcn CLI](https://ui.shadcn.com/docs/cli).
-- Each entry is well-documented and includes:
-  - Live preview & code snippets
-  - Beautiful, readable code blocks
-  - One-click command blocks (pnpm, npm, yarn, bun)`,
-    logo: "https://assets.chanhdai.com/images/project-logos/chanhdaidotcom.svg",
+Built on top of modern cloud technologies, Kube Credential ensures that every credential is tamper-resistant, cryptographically verifiable, and compliant with industry standards.
+
+**Frontend Demo:**
+
+The live version of the project includes a functional frontend interface with a subset of UI features. This is intentional, because the company assignment required:
+
+- A functional frontend demo
+- Only a subset of UI features
+- Not exposing full internal logic publicly
+
+[GitHub Repository](https://github.com/Sunilkumarchavhan9/Kube-Credential)`,
+    isExpanded: true,
   },
   {
-    id: "quaricdotcom",
-    title: "quaric.com",
+    id: "portfolio-v1-2",
+    title: "Portfolio v1.2 – Experimental Developer Profile",
     period: {
-      start: "03.2024",
+      start: "2025",
+      end: "done",
     },
-    link: "https://quaric.com",
+    link: "https://jinxdev-tau.vercel.app/",
     skills: [
-      "Company Project",
-      "Next.js 15",
-      "Tailwind CSS v3",
-      "shadcn/ui",
-      "Strapi 5",
-      "VNPAY-QR",
-      "Docker",
-      "Docker Compose",
-      "NGINX",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "UI/UX",
+      "Animations",
     ],
-    logo: "https://assets.chanhdai.com/images/project-logos/quaricdotcom.svg",
-  },
-  {
-    id: "zadark",
-    title: "ZaDark",
-    period: {
-      start: "01.2022",
-    },
-    link: "https://zadark.com",
-    skills: [
-      "Pet Project",
-      "Open Source",
-      "Browser Extension",
-      "CLI",
-      "Docusaurus 3",
-    ],
-    description: `ZaDark adds Dark Mode, anti-peeking, customizable fonts, backgrounds, and more to Zalo Web and PC.
-- Earned 10M+ VND in net sales from a paid Safari Extension
-- 80k+ downloads on SourceForge (awarded Community Leader badge by SourceForge)
-- 20k+ active users via Chrome Web Store (as of Sep 2025)
-- Bronze Medal — 10th Design, Manufacturing, and Application Award 2022`,
-    logo: "https://assets.chanhdai.com/images/project-logos/zadark.svg",
-  },
-  {
-    id: "qabox",
-    title: "QABox",
-    period: {
-      start: "07.2023",
-      end: "07.2023",
-    },
-    link: "https://github.com/ncdai/qabox",
-    skills: [
-      "University Project",
-      "PHP",
-      "MySQL",
-      "MVC",
-      "Docker",
-      "Docker Compose",
-    ],
-    description:
-      "- Course: Distributed Applications — FIT@HCMUS\n- Project Score: 10/10\n- Source Code: https://github.com/ncdai/qabox",
-  },
-  {
-    id: "taskbox",
-    title: "TaskBox",
-    period: {
-      start: "07.2023",
-      end: "07.2023",
-    },
-    link: "https://github.com/ncdai/taskbox",
-    skills: [
-      "University Project",
-      "PHP",
-      "MySQL",
-      "MVC",
-      "Docker",
-      "Docker Compose",
-    ],
-    description:
-      "- Course: Distributed Applications — FIT@HCMUS\n- Project Score: 10/10\n- Source Code: https://github.com/ncdai/taskbox",
-  },
-  {
-    id: "daichat-app",
-    title: "DaiChat App",
-    period: {
-      start: "07.2020",
-      end: "07.2020",
-    },
-    link: "https://www.youtube.com/watch?v=H5U3J_W1low",
-    skills: ["University Project", "Java", "Java Swing", "Java Networking"],
-    description: `- Course: Java Application Programming — FIT@HCMUS
-- Requirement: Developed a real-time chat application using Java technologies
-- Project Score: 10/10
-- Source Code:
-  - Server: https://github.com/ncdai/ltudjava-summer2020-chatapp_server
-  - Client: https://github.com/ncdai/ltudjava-summer2020-chatapp_client`,
-  },
-  {
-    id: "qlsv-app",
-    title: "QLSV App",
-    period: {
-      start: "06.2020",
-      end: "06.2020",
-    },
-    link: "https://www.youtube.com/watch?v=tG9SZEBrwog",
-    skills: ["University Project", "Java", "Java Swing", "Hibernate", "MySQL"],
-    description: `- Course: Java Application Programming — FIT@HCMUS
-- Requirement: Built a student management system with role-based functionalities using Java technologies
-- Project Score: 10/10
-- Source Code: https://github.com/ncdai/ltudjava-summer2020-hibernate`,
-  },
-  {
-    id: "penphy",
-    title: "Penphy",
-    period: {
-      start: "01.2019",
-      end: "08.2019",
-    },
-    link: "https://www.youtube.com/watch?v=EdU7rUO-UA4",
-    skills: ["Startup Project", "JavaScript", "React Native"],
-    description: "2nd Prize — Business Startup Competition 2019",
-  },
-  {
-    id: "unlimitedstudy",
-    title: "UnlimitedStudy",
-    period: {
-      start: "01.2017",
-      end: "08.2018",
-    },
-    link: "https://muctim.tuoitre.vn/cong-cu-ho-tro-viec-day-va-hoc-55107.htm",
-    skills: [
-      "National Competition",
-      "Creative Software",
-      "PHP",
-      "Laravel 4",
-      "MySQL",
-      "jQuery",
-      "Bootstrap 3",
-    ],
-    description: `UnlimitedStudy is a website that provides teaching and learning support tools for teachers and students.
-- 3rd Prize — National Science and Engineering Fair 2018 (ViSEF)
-- 1st Prize — Can Tho City Science and Engineering Fair 2018
-- 3rd Prize — National Young Informatics Contest 2018
-- 2nd Prize — Can Tho City Youth and Children's Creativity Contest 2018
-- 3rd Prize — Can Tho City Young Informatics Contest 2018
-- Reached 7k+ users, mainly high school students in Can Tho City
-- Pilot implemented in high schools across Can Tho City with English quizzes, supervised by English subject specialists from the Can Tho City Department of Education and Training`,
-    logo: "https://assets.chanhdai.com/images/project-logos/unlimitedstudy.webp",
-  },
-  {
-    id: "dmessage",
-    title: "DMessage",
-    period: {
-      start: "05.2017",
-      end: "05.2017",
-    },
-    link: "https://github.com/ncdai/DMessage",
-    skills: [
-      "Self-learning Project",
-      "Pet Project",
-      "Express.js",
-      "Socket.io",
-      "MongoDB",
-      "Mongoose ODM",
-    ],
-    description:
-      "A Messenger clone built to practice real-time communication using Socket.IO. This project showcases my self-learning journey in implementing WebSockets for instant messaging.",
-  },
-  {
-    id: "study-english",
-    title: "Study English",
-    period: {
-      start: "11.2016",
-      end: "12.2017",
-    },
-    link: "https://www.youtube.com/watch?v=OYgugvjqU4A",
-    skills: [
-      "National Competition",
-      "Creative Software",
-      "PHP",
-      "Laravel 4",
-      "MySQL",
-    ],
-    description: `Study English is a free, mobile-friendly website for high school English learning, offering vocabulary, quizzes, listening practice, and more.
-- Consolation Prize — National Youth and Children's Creativity Contest 2016
-- 1st Prize — Can Tho City Youth and Children's Creativity Contest 2016
-- Consolation Prize — Can Tho City Young Informatics Contest 2016`,
+    description: `This is my older personal portfolio where I experimented with layouts, animations, and different UI ideas. It was my first attempt at building a clean, minimal developer profile with project highlights, contact sections, and custom components. I used it to explore new design patterns, try out different tech stacks, and understand how to present my work better before creating my current portfolio.
+
+- Iterated on layouts, motion, and interaction patterns to learn what feels best
+- Showcased project highlights, contact sections, and custom components in a minimal UI
+- Served as a playground to test stacks and presentation approaches before the current site
+
+
+[GitHub Repository](https://github.com/Sunilkumarchavhan9/Portfoliov1.2)`,
+    isExpanded: true,
   },
 ];

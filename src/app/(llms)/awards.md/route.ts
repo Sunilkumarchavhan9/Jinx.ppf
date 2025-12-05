@@ -1,8 +1,8 @@
-import { AWARDS } from "@/features/portfolio/data/awards";
+import { ACHIEVEMENTS } from "@/features/portfolio/data/awards";
 
 const content = `# Awards
 
-${AWARDS.map((item) => `## ${item.prize} | ${item.title}\n\n${item.description}`).join("\n\n")}
+${ACHIEVEMENTS.map((item) => `## ${item.prize} | ${item.title}\n\n${item.description}`).join("\n\n")}
 `;
 
 export const dynamic = "force-static";

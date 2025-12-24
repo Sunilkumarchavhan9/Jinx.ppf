@@ -2,6 +2,31 @@ import type { Project } from "../types/projects";
 
 export const PROJECTS: Project[] = [
   {
+    id: "settll-telegram-bot",
+    title: "Settll Telegram Bot – Blockchain AML Monitoring Tool",
+    period: {
+      start: "2025",
+    },
+    link: "https://x.com/FrostbytHitsuG/status/2002446039656378833?s=20",
+    skills: [
+      "TypeScript",
+      "Telegram Bot API",
+      "Blockchain",
+      "EVM",
+      "Solana",
+      "Prisma",
+      "Database Management",
+      "AML Monitoring",
+      "Webhooks",
+      "Real-time Notifications",
+      "Financial Compliance",
+    ],
+    description: `Settll Telegram Bot is a TypeScript-based automation tool designed to interact with users via Telegram. It integrates with blockchain providers (EVM and Solana), leverages Prisma for database management, and features robust alerting, tracking, and webhook systems. The bot streamlines AML (Anti-Money Laundering) monitoring, provides real-time notifications, and supports seamless integration with external services, making it a valuable asset for financial compliance and blockchain analytics.
+
+ [GitHub Repository](https://github.com/Sunilkumarchavhan9/Settll-telegram-bot)`,
+    isExpanded: true,
+  },
+  {
     id: "link-bird",
     title: "Link Bird – Automated LinkedIn Outreach Platform",
     period: {

@@ -65,9 +65,16 @@ export function PostItem({
         <dl>
           <dt className="sr-only">Published on</dt>
           <dd className="text-sm text-muted-foreground">
-            <time dateTime={new Date(post.metadata.createdAt).toISOString()}>
-              {format(new Date(post.metadata.createdAt), "dd.MM.yyyy")}
-            </time>
+            {(() => {
+              const raw = post.metadata.createdAt ?? post.metadata.date ?? null;
+              let d = raw ? new Date(raw) : new Date();
+              if (isNaN(d.getTime())) d = new Date();
+              return (
+                <time dateTime={d.toISOString()}>
+                  {format(d, "dd.MM.yyyy")}
+                </time>
+              );
+            })()}
           </dd>
         </dl>
       </div>

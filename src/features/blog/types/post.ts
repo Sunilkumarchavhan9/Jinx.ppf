@@ -26,11 +26,15 @@ export type PostMetadata = {
   /**
    * Post creation date as an ISO date string (e.g. YYYY-MM-DD). Used for sorting.
    */
-  createdAt: string;
+  createdAt?: string;
+  /**
+   * Alternate frontmatter key some posts use.
+   */
+  date?: string;
   /**
    * Last updated date as an ISO date string (e.g. YYYY-MM-DD).
    */
-  updatedAt: string;
+  updatedAt?: string;
 };
 
 export type Post = {

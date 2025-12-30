@@ -13,11 +13,15 @@ export async function getLLMText(post: Post) {
     value: post.content,
   });
 
+  const updatedAtRaw = post.metadata.updatedAt ?? post.metadata.date ?? null;
+  let updatedAt = updatedAtRaw ? new Date(updatedAtRaw) : new Date();
+  if (isNaN(updatedAt.getTime())) updatedAt = new Date();
+
   return `# ${post.metadata.title}
 
 ${post.metadata.description}
 
 ${processed.value}
 
-Last updated on ${format(new Date(post.metadata.updatedAt), "MMMM d, yyyy")}`;
+Last updated on ${format(updatedAt, "MMMM d, yyyy")}`;
 }

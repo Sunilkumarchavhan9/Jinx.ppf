@@ -65,10 +65,14 @@ ${CERTIFICATIONS.map((item) => `- [${item.title}](${item.credentialURL})`).join(
 
 async function getBlogContent() {
   const text = await Promise.all(
-    allPosts.map(
-      async (item) =>
-        `---\ntitle: "${item.metadata.title}"\ndescription: "${item.metadata.description}"\nlast_updated: "${format(new Date(item.metadata.updatedAt), "MMMM d, yyyy")}"\nsource: "${SITE_INFO.url}/blog/${item.slug}"\n---\n\n${await getLLMText(item)}`
-    )
+    allPosts.map(async (item) => {
+      const updatedAtRaw =
+        item.metadata.updatedAt ?? item.metadata.date ?? null;
+      let updatedAt = updatedAtRaw ? new Date(updatedAtRaw) : new Date();
+      if (isNaN(updatedAt.getTime())) updatedAt = new Date();
+
+      return `---\ntitle: "${item.metadata.title}"\ndescription: "${item.metadata.description}"\nlast_updated: "${format(updatedAt, "MMMM d, yyyy")}"\nsource: "${SITE_INFO.url}/blog/${item.slug}"\n---\n\n${await getLLMText(item)}`;
+    })
   );
   return text.join("\n\n");
 }

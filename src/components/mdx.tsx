@@ -144,6 +144,7 @@ const components: MDXRemoteProps["components"] = {
   ),
   YouTubeEmbed,
   FramedImage,
+  Image: FramedImage,
   video: (props: React.ComponentProps<"video">) => (
     <div className="relative my-6">
       <video className="w-full rounded-xl" controls {...props} />

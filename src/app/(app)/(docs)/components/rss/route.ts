@@ -7,15 +7,18 @@ export function GET() {
   const allPosts = getPostsByCategory("components");
 
   const itemsXml = allPosts
-    .map(
-      (post) =>
-        `<item>
+    .map((post) => {
+      const rawDate = post.metadata.createdAt ?? post.metadata.date ?? null;
+      let d = rawDate ? new Date(rawDate) : new Date();
+      if (isNaN(d.getTime())) d = new Date();
+
+      return `<item>
           <title>${post.metadata.title}</title>
           <link>${SITE_INFO.url}/components/${post.slug}</link>
           <description>${post.metadata.description || ""}</description>
-          <pubDate>${new Date(post.metadata.createdAt).toISOString()}</pubDate>
-        </item>`
-    )
+          <pubDate>${d.toUTCString()}</pubDate>
+        </item>`;
+    })
     .join("\n");
 
   const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>

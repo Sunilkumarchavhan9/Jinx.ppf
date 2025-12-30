@@ -44,10 +44,13 @@ export function getAllPosts() {
       if (a.metadata.pinned && !b.metadata.pinned) return -1;
       if (!a.metadata.pinned && b.metadata.pinned) return 1;
 
-      return (
-        new Date(b.metadata.createdAt).getTime() -
-        new Date(a.metadata.createdAt).getTime()
-      );
+      const getTime = (m: PostMetadata) => {
+        const raw = m.createdAt ?? m.date ?? null;
+        const d = raw ? new Date(raw) : new Date(0);
+        return isNaN(d.getTime()) ? 0 : d.getTime();
+      };
+
+      return getTime(b.metadata) - getTime(a.metadata);
     }
   );
 }

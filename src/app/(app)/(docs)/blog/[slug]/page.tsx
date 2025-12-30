@@ -47,7 +47,13 @@ export async function generateMetadata({
     return notFound();
   }
 
-  const { title, description, image, createdAt, updatedAt } = post.metadata;
+  const { title, description, image } = post.metadata;
+  const createdAtRaw = post.metadata.createdAt ?? post.metadata.date ?? null;
+  const updatedAtRaw = post.metadata.updatedAt ?? post.metadata.date ?? null;
+  let createdAt = createdAtRaw ? new Date(createdAtRaw) : new Date();
+  let updatedAt = updatedAtRaw ? new Date(updatedAtRaw) : new Date();
+  if (isNaN(createdAt.getTime())) createdAt = new Date();
+  if (isNaN(updatedAt.getTime())) updatedAt = new Date();
 
   const postUrl = getPostUrl(post);
   const ogImage = image || `/og/simple?title=${encodeURIComponent(title)}`;
@@ -61,8 +67,8 @@ export async function generateMetadata({
     openGraph: {
       url: postUrl,
       type: "article",
-      publishedTime: new Date(createdAt).toISOString(),
-      modifiedTime: new Date(updatedAt).toISOString(),
+      publishedTime: createdAt.toISOString(),
+      modifiedTime: updatedAt.toISOString(),
       images: {
         url: ogImage,
         width: 1200,
@@ -78,6 +84,13 @@ export async function generateMetadata({
 }
 
 function getPageJsonLd(post: Post): WithContext<PageSchema> {
+  const createdAtRaw = post.metadata.createdAt ?? post.metadata.date ?? null;
+  const updatedAtRaw = post.metadata.updatedAt ?? post.metadata.date ?? null;
+  let createdAt = createdAtRaw ? new Date(createdAtRaw) : new Date();
+  let updatedAt = updatedAtRaw ? new Date(updatedAtRaw) : new Date();
+  if (isNaN(createdAt.getTime())) createdAt = new Date();
+  if (isNaN(updatedAt.getTime())) updatedAt = new Date();
+
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -87,8 +100,8 @@ function getPageJsonLd(post: Post): WithContext<PageSchema> {
       post.metadata.image ||
       `/og/simple?title=${encodeURIComponent(post.metadata.title)}`,
     url: `${SITE_INFO.url}${getPostUrl(post)}`,
-    datePublished: new Date(post.metadata.createdAt).toISOString(),
-    dateModified: new Date(post.metadata.updatedAt).toISOString(),
+    datePublished: createdAt.toISOString(),
+    dateModified: updatedAt.toISOString(),
     author: {
       "@type": "Person",
       name: USER.displayName,

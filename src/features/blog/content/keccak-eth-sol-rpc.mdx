@@ -8,7 +8,7 @@ tags:
   - solana
   - rpc
   - keccak
-image: /images/blog/keccak-eth-sol-rpc-cover.png
+image: /images/blog/keccak-eth-sol-rpc-cover.svg
 ---
 
 import Image from "next/image";
@@ -28,7 +28,7 @@ Keccak-256 is a cryptographic hash function widely used in Ethereum.
 Try it out with an online Keccak-256 tool if you want to experiment.
 
 <Image
-  src="/images/blog/keccak-diagram-01.png"
+  src="/images/blog/keccak-diagram-01.svg"
   alt="Keccak to address diagram"
   width={1200}
   height={300}
@@ -46,7 +46,7 @@ Generation process:
 Example diagram:
 
 <Image
-  src="/images/blog/eth-address-derivation.png"
+  src="/images/blog/eth-address-derivation.svg"
   alt="Ethereum address derivation"
   width={1200}
   height={200}
@@ -66,7 +66,7 @@ References: implementations in Ethers.js and Backpack (wallets) follow this proc
 - Solana addresses are just the public key encoded — no extra Keccak hashing/chopping step is required like Ethereum.
 
 <Image
-  src="/images/blog/solana-key-diagram.png"
+  src="/images/blog/solana-key-diagram.svg"
   alt="Solana key flow"
   width={1200}
   height={150}
@@ -85,7 +85,7 @@ Example typical flow when checking an on-chain balance:
 Diagram:
 
 <Image
-  src="/images/blog/frontend-backend-rpc.png"
+  src="/images/blog/frontend-backend-rpc.svg"
   alt="Frontend backend RPC"
   width={1200}
   height={300}
@@ -118,7 +118,7 @@ Ethereum JSON-RPC example (getBalance):
 You can use tools like Postman to send RPC requests to providers such as Alchemy, QuickNode, or a public Solana RPC endpoint.
 
 <Image
-  src="/images/blog/postman-rpc-example.png"
+  src="/images/blog/postman-rpc-example.svg"
   alt="Postman RPC example"
   width={1200}
   height={350}
@@ -144,7 +144,7 @@ console.log(LAMPORTS_PER_SOL); // 1000000000
 - You can scale RPC capacity by adding more nodes and load-balancing requests. Public providers (Alchemy, QuickNode, Helius) manage this for you.
 
 <Image
-  src="/images/blog/rpc-node-cluster.png"
+  src="/images/blog/rpc-node-cluster.svg"
   alt="RPC node cluster"
   width={1200}
   height={400}
@@ -155,12 +155,12 @@ console.log(LAMPORTS_PER_SOL); // 1000000000
 Notes / To-do:
 
 - Add the images used above into `public/images/blog/`:
-  - `keccak-eth-sol-rpc-cover.png`
-  - `keccak-diagram-01.png`
-  - `eth-address-derivation.png`
-  - `solana-key-diagram.png`
-  - `frontend-backend-rpc.png`
-  - `postman-rpc-example.png`
-  - `rpc-node-cluster.png`
+  - `keccak-eth-sol-rpc-cover.svg`
+  - `keccak-diagram-01.svg`
+  - `eth-address-derivation.svg`
+  - `solana-key-diagram.svg`
+  - `frontend-backend-rpc.svg`
+  - `postman-rpc-example.svg`
+  - `rpc-node-cluster.svg`
 
 I added the post content and image placeholders — please copy the screenshots you attached into the files listed above (under `public/images/blog/`) and I'll help wire them in or tweak captions if you want.

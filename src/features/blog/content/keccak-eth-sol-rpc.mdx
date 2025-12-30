@@ -1,0 +1,166 @@
+---
+title: "Keccak-256, Ethereum vs Solana addresses, and RPC basics"
+date: 2025-12-30
+description: "Notes on Keccak-256, how Ethereum and Solana addresses are generated, JSON-RPC usage, and small code snippets for balances and units."
+tags:
+  - crypto
+  - ethereum
+  - solana
+  - rpc
+  - keccak
+image: /images/blog/keccak-eth-sol-rpc-cover.png
+---
+
+import Image from "next/image";
+
+# Keccak-256, Ethereum vs Solana addresses, and RPC basics
+
+Today I learned and summarized the essentials: Keccak-256 hashing, how Ethereum addresses are derived, how Solana keys differ, and how RPC/JSON-RPC calls work when querying balances.
+
+## Keccak-256
+
+Keccak-256 is a cryptographic hash function widely used in Ethereum.
+
+- Collision resistance: extremely difficult to find two inputs with the same hash.
+- Pre-image resistance: infeasible to invert the hash to recover the original input.
+- Output length: 256 bits (32 bytes).
+
+Try it out with an online Keccak-256 tool if you want to experiment.
+
+<Image
+  src="/images/blog/keccak-diagram-01.png"
+  alt="Keccak to address diagram"
+  width={1200}
+  height={300}
+/>
+
+## Ethereum addresses (brief)
+
+Generation process:
+
+1. Generate an elliptic-curve keypair (EdDSA/SECP256k1 depending on the stack). The public key is typically 64 bytes (uncompressed) or 32 bytes for some curves.
+2. Hash the public key with Keccak-256.
+3. Take the last 20 bytes of the hash.
+4. Convert to hexadecimal and prefix with `0x` — this is the Ethereum address.
+
+Example diagram:
+
+<Image
+  src="/images/blog/eth-address-derivation.png"
+  alt="Ethereum address derivation"
+  width={1200}
+  height={200}
+/>
+
+Example (conceptual):
+
+```text
+public_key -> keccak256 -> 32 byte hash -> last 20 bytes -> 0x... (address)
+```
+
+References: implementations in Ethers.js and Backpack (wallets) follow this process.
+
+## Solana public keys
+
+- Solana public keys are 32 bytes and are commonly presented in Base58 (e.g. `5W4oGg...`).
+- Solana addresses are just the public key encoded — no extra Keccak hashing/chopping step is required like Ethereum.
+
+<Image
+  src="/images/blog/solana-key-diagram.png"
+  alt="Solana key flow"
+  width={1200}
+  height={150}
+/>
+
+## Frontend vs Backend and RPC
+
+- Backend servers: run application logic and may talk to blockchain RPC providers.
+- Frontend: issues HTTP requests to backends or directly to RPC endpoints for quick queries.
+
+Example typical flow when checking an on-chain balance:
+
+1. Frontend sends a JSON-RPC request to an RPC server (either a public provider or your backend proxy).
+2. RPC server queries the node(s) and returns the result.
+
+Diagram:
+
+<Image
+  src="/images/blog/frontend-backend-rpc.png"
+  alt="Frontend backend RPC"
+  width={1200}
+  height={300}
+/>
+
+### JSON-RPC examples
+
+Solana JSON-RPC example (getAccountInfo):
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "getAccountInfo",
+  "params": ["Eg4F6LW8DD3SvFLLigYJBFvRnXSBiLZYYJ3KEePDL95Q"]
+}
+```
+
+Ethereum JSON-RPC example (getBalance):
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "eth_getBalance",
+  "params": ["0x8BCd4591F46e809B15A490F5C6eD031FDDE0bee0", "latest"]
+}
+```
+
+You can use tools like Postman to send RPC requests to providers such as Alchemy, QuickNode, or a public Solana RPC endpoint.
+
+<Image
+  src="/images/blog/postman-rpc-example.png"
+  alt="Postman RPC example"
+  width={1200}
+  height={350}
+/>
+
+## Units: Wei and Lamports
+
+When working with balances avoid floating-point decimals. Use integer smallest units instead:
+
+- Ethereum: wei (1 ETH = 10^18 wei). Gwei commonly used for gas (1 ETH = 10^9 Gwei).
+- Solana: lamports (1 SOL = 10^9 lamports).
+
+Quick example (Node):
+
+```js
+const { LAMPORTS_PER_SOL } = require("@solana/web3.js");
+console.log(LAMPORTS_PER_SOL); // 1000000000
+```
+
+## RPC servers and scaling
+
+- An RPC server is an intermediary between clients and blockchain nodes. It does not participate in consensus or staking.
+- You can scale RPC capacity by adding more nodes and load-balancing requests. Public providers (Alchemy, QuickNode, Helius) manage this for you.
+
+<Image
+  src="/images/blog/rpc-node-cluster.png"
+  alt="RPC node cluster"
+  width={1200}
+  height={400}
+/>
+
+---
+
+Notes / To-do:
+
+- Add the images used above into `public/images/blog/`:
+  - `keccak-eth-sol-rpc-cover.png`
+  - `keccak-diagram-01.png`
+  - `eth-address-derivation.png`
+  - `solana-key-diagram.png`
+  - `frontend-backend-rpc.png`
+  - `postman-rpc-example.png`
+  - `rpc-node-cluster.png`
+
+I added the post content and image placeholders — please copy the screenshots you attached into the files listed above (under `public/images/blog/`) and I'll help wire them in or tweak captions if you want.

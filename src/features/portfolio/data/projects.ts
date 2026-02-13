@@ -2,6 +2,39 @@ import type { Project } from "../types/projects";
 
 export const PROJECTS: Project[] = [
   {
+    id: "sol-token-launch-pad",
+    title: "Sol Token Launch Pad",
+    period: {
+      start: "02.2026",
+      end: "02.2026",
+    },
+    link: "https://landingpage-roan-rho.vercel.app/",
+    skills: [
+      "Solana",
+      "Token Launchpad",
+      "Web3",
+      "TypeScript",
+      "React",
+      "Liquidity Pools",
+      "Token Minting",
+      "DEX Swaps",
+      "Modular Components",
+    ],
+    description: `Sol Token Launch Pad is a platform built to simplify the creation, management, and launch of Solana-based tokens.
+
+Core backend capabilities include:
+- Creating new tokens on Solana
+- Minting tokens
+- Managing liquidity pools (create, add, and swap)
+- Enforcing secure and efficient blockchain interactions
+
+The project also includes modular React components for each feature to keep the UI integration fast and maintainable.
+
+[Live Demo](https://landingpage-roan-rho.vercel.app/)
+[GitHub Repository](https://github.com/Sunilkumarchavhan9/Sol-Liquidity-Launching-Pad.git)`,
+    isExpanded: true,
+  },
+  {
     id: "settll-telegram-bot",
     title: "Settll Telegram Bot – Blockchain AML Monitoring Tool",
     period: {

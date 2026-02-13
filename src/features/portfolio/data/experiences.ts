@@ -3,17 +3,45 @@ import type { Experience } from "../types/experiences";
 export const EXPERIENCES: Experience[] = [
   {
     id: "rektoff",
-    companyName: "Rektoff.xyz - School of Solana",
+    companyName: "TURBIN3",
+    companyLogo: "https://www.turbin3.org/images/turbin3.svg",
+    positions: [
+      {
+        id: "",
+        title: "",
+        employmentPeriod: {
+          start: "01.2026",
+        },
+        // employmentType: "",
+        icon: "code",
+        description: `as fellow full stack dev  I had great experience while learning new  technologies and build multiple projects and solving complex problem based  Blockchain  + full stack web  development `,
+        skills: [
+          "Solana",
+          "Blockchain",
+          "Web3.js",
+          "Solidity",
+          "Decentralized Applications",
+          "Smart Contracts",
+          "Dapp",
+        ],
+        isExpanded: true,
+      },
+    ],
+    isCurrentEmployer: true,
+  },
+  {
+    id: "rektoff",
+    companyName: "Rektoff.xyz",
     companyLogo:
       "https://ugc.production.linktr.ee/39fc6b53-0c41-46a7-8af5-e895bc78ac90_YouTube-Avatar.png?io=true&size=avatar-v3_0",
     positions: [
       {
-        id: "rektoff-fellow-2025",
-        title: "Fellow",
+        id: "",
+        title: "",
         employmentPeriod: {
           start: "10.2025",
         },
-        employmentType: "Fellowship",
+        employmentType: "",
         icon: "code",
         description: `- Selected from over 3,000 applicants (only 72 chosen) for an intensive fellowship on Solana ecosystem and blockchain innovation (Season 8, Cohort 2).
         - Drove the development of decentralized applications & on-chain solutions, utilizing Solidity & Web3.js to enhance user interaction.`,

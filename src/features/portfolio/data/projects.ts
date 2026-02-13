@@ -2,6 +2,39 @@ import type { Project } from "../types/projects";
 
 export const PROJECTS: Project[] = [
   {
+    id: "outcome-sports-market",
+    title: "Outcome - Live Sports Prediction Market",
+    period: {
+      start: "02.2026",
+    },
+    link: "https://20-poly.vercel.app/",
+    skills: [
+      "Solana",
+      "Prediction Markets",
+      "Sports Markets",
+      "On-chain Settlement",
+      "Non-custodial Trading",
+      "Real-time Pricing",
+      "Web3",
+      "React",
+    ],
+    description: `Outcome is a live market platform for trading real-world sports outcomes with real-time pricing.
+
+How Outcome works:
+- Each event has a live market where prices reflect the probability of each outcome
+- Users enter a position at the current price and can exit whenever the market moves in their favor
+- When the event resolves, winning outcomes are redeemed automatically on-chain
+
+No traditional "bet wins" flow. This is a new way to trade what happens next.
+
+Built on Solana with on-chain settlement and a non-custodial architecture.
+
+For the best experience, open on PC or laptop. The current build is not optimized for mobile.
+
+[Start Trading Live Outcomes](https://20-poly.vercel.app/)`,
+    isExpanded: true,
+  },
+  {
     id: "sol-token-launch-pad",
     title: "Sol Token Launch Pad",
     period: {

@@ -8,11 +8,11 @@ export const EXPERIENCES: Experience[] = [
     positions: [
       {
         id: "",
-        title: "",
+        title: "Blockchain + FullStack Developer",
         employmentPeriod: {
           start: "01.2026",
         },
-        // employmentType: "",
+        employmentType: "",
         icon: "code",
         description: `as fellow full stack dev  I had great experience while learning new  technologies and build multiple projects and solving complex problem based  Blockchain  + full stack web  development `,
         skills: [
@@ -37,7 +37,7 @@ export const EXPERIENCES: Experience[] = [
     positions: [
       {
         id: "",
-        title: "",
+        title: "Blockchain Developer",
         employmentPeriod: {
           start: "10.2025",
         },

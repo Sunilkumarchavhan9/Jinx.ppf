@@ -16,59 +16,58 @@ const PRIMARY_CTA =
 
 export function ProfileHeader() {
   return (
-    <div className="screen-line-after flex border-x border-edge">
-      <div className="shrink-0 border-r border-edge">
-        <div className="mx-0.5 my-[3px]">
+    <div className="screen-line-after flex flex-col border-x border-edge sm:flex-row">
+      <div className="shrink-0 border-b border-edge sm:border-r sm:border-b-0">
+        <div className="relative my-[3px] mr-auto ml-3 w-fit sm:mx-0.5">
           <img
-            className="size-32 rounded-full ring-1 ring-border ring-offset-2 ring-offset-background select-none sm:size-40"
+            className="size-28 rounded-full ring-1 ring-border ring-offset-2 ring-offset-background select-none sm:size-40"
             alt={`${USER.displayName}'s avatar`}
             src={USER.avatar}
             fetchPriority="high"
           />
-        </div>
-
-        <a
-          href="https://www.india.gov.in"
-          target="_blank"
-          rel="noreferrer"
-          className="absolute top-0 -left-px"
-        >
-          {/* Flag of India */}
-          <svg
-            className="h-8 sm:h-9"
-            viewBox="0 0 30 20"
-            xmlns="http://www.w3.org/2000/svg"
+          <a
+            href="https://www.india.gov.in"
+            target="_blank"
+            rel="noreferrer"
+            className="absolute top-0 left-0"
           >
-            <title>Flag of India</title>
-            <rect width="30" height="6.67" fill="#FF9933" />
-            <rect y="6.67" width="30" height="6.67" fill="#FFFFFF" />
-            <rect y="13.33" width="30" height="6.67" fill="#138808" />
-            <circle
-              cx="15"
-              cy="10"
-              r="2.5"
-              fill="none"
-              stroke="#000080"
-              strokeWidth="0.3"
-            />
-            <circle cx="15" cy="10" r="0.3" fill="#000080" />
-            {/* Ashoka Chakra spokes */}
-            <g stroke="#000080" strokeWidth="0.15">
-              {[...Array(24)].map((_, i) => {
-                const angle = (i * 15 * Math.PI) / 180;
-                const x1 = 15 + 0.5 * Math.cos(angle);
-                const y1 = 10 + 0.5 * Math.sin(angle);
-                const x2 = 15 + 2.3 * Math.cos(angle);
-                const y2 = 10 + 2.3 * Math.sin(angle);
-                return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} />;
-              })}
-            </g>
-          </svg>
-        </a>
+            {/* Flag of India */}
+            <svg
+              className="h-7 sm:h-9"
+              viewBox="0 0 30 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Flag of India</title>
+              <rect width="30" height="6.67" fill="#FF9933" />
+              <rect y="6.67" width="30" height="6.67" fill="#FFFFFF" />
+              <rect y="13.33" width="30" height="6.67" fill="#138808" />
+              <circle
+                cx="15"
+                cy="10"
+                r="2.5"
+                fill="none"
+                stroke="#000080"
+                strokeWidth="0.3"
+              />
+              <circle cx="15" cy="10" r="0.3" fill="#000080" />
+              {/* Ashoka Chakra spokes */}
+              <g stroke="#000080" strokeWidth="0.15">
+                {[...Array(24)].map((_, i) => {
+                  const angle = (i * 15 * Math.PI) / 180;
+                  const x1 = 15 + 0.5 * Math.cos(angle);
+                  const y1 = 10 + 0.5 * Math.sin(angle);
+                  const x2 = 15 + 2.3 * Math.cos(angle);
+                  const y2 = 10 + 2.3 * Math.sin(angle);
+                  return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} />;
+                })}
+              </g>
+            </svg>
+          </a>
+        </div>
       </div>
 
       <div className="flex flex-1 flex-col">
-        <div className="flex grow items-end pb-1 pl-4">
+        <div className="hidden grow items-end pb-1 pl-4 sm:flex">
           <div className="line-clamp-1 font-mono text-xs text-zinc-300 select-none max-sm:hidden dark:text-zinc-800">
             {"text-3xl "}
             <span className="inline dark:hidden">text-zinc-950</span>
@@ -78,8 +77,8 @@ export function ProfileHeader() {
         </div>
 
         <div className="border-t border-edge">
-          <div className="flex items-center gap-2 pl-4">
-            <h1 className="-translate-y-px [font-family:var(--font-display)] text-3xl font-semibold tracking-tight">
+          <div className="flex items-center gap-2 px-3 py-2 sm:py-0 sm:pl-4">
+            <h1 className="-translate-y-px [font-family:var(--font-display)] text-2xl leading-none font-semibold tracking-tight sm:text-3xl">
               {USER.displayName}
             </h1>
 
@@ -95,9 +94,9 @@ export function ProfileHeader() {
             )}
           </div>
 
-          <div className="h-12.5 border-t border-edge py-1 pl-4 sm:h-9">
+          <div className="min-h-11 border-t border-edge px-3 py-1 sm:h-9 sm:pl-4">
             <FlipSentences
-              className="font-mono text-sm text-balance text-muted-foreground"
+              className="font-mono text-xs text-balance text-muted-foreground sm:text-sm"
               variants={{
                 initial: { y: -10, opacity: 0 },
                 animate: { y: -1, opacity: 1 },
@@ -108,7 +107,7 @@ export function ProfileHeader() {
             </FlipSentences>
           </div>
 
-          <div className="flex flex-wrap items-center justify-between gap-2 border-t border-edge p-2 pl-4">
+          <div className="flex flex-col gap-2 border-t border-edge p-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:pl-4">
             <div className="flex flex-wrap items-center gap-2">
               {TRUST_BADGES.map((badge) => (
                 <span
@@ -120,7 +119,7 @@ export function ProfileHeader() {
               ))}
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center justify-between gap-2 sm:justify-start">
               <span className="inline-flex items-center gap-1 rounded-sm border border-success/40 bg-success/10 px-2 py-1 text-[11px] font-medium text-success">
                 <span className="size-1.5 rounded-full bg-success motion-safe:animate-pulse" />
                 {USER.availability}

@@ -17,17 +17,21 @@ export const USER: User = {
   address: "Bengaluru",
   phoneNumber: "NjM2MzY5NzYwMA==", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
   email: "Y2hhdmhhbnN1bmlsa3VtYXI3NTNAZ21haWwuY29t", // base64 encoded
-  website: "https://jinxdev-tau.vercel.app",
+  website: "https://www.linkedin.com/in/sunil-kumar-chavhan-269195299",
   jobTitle: "Full-Stack & Blockchain Engineer",
   availability: "Open to freelance and internship roles",
   resumeUrl: "/resume",
   jobs: [
     {
       title: "Web-2 and Web-3 Polymath Developer",
-      company: "",
-      website: "",
+      company: "solanaturbine",
+      website: "https://x.com/solanaturbine",
     },
   ],
+  currentProject: {
+    name: "20.poly",
+    url: "https://20-poly.vercel.app/",
+  },
 
   about: `
 I’m Sunil Kumar Chavhan — a Full-Stack & Blockchain Polymath who loves building systems that scale, ship fast, and break limits. I work across the entire stack: TypeScript, Next.js, Node.js, and cloud-native infrastructure, while also crafting secure on-chain solutions using Solana, Rust, and Solidity.

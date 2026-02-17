@@ -1,3 +1,10 @@
+import { Icons } from "@/components/icons";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links";
 import { USER } from "@/features/portfolio/data/user";
 import { FlipSentences } from "@/registry/flip-sentences";
@@ -11,8 +18,10 @@ const TRUST_BADGES = [
   "GitHub Campus Expert",
 ] as const;
 
-const PRIMARY_CTA =
+const LINKEDIN_CTA =
   SOCIAL_LINKS.find((link) => link.title === "LinkedIn")?.href || USER.website;
+const X_CTA =
+  SOCIAL_LINKS.find((link) => link.title.startsWith("X"))?.href || USER.website;
 
 export function ProfileHeader() {
   return (
@@ -119,20 +128,32 @@ export function ProfileHeader() {
               ))}
             </div>
 
-            <div className="flex items-center justify-between gap-2 sm:justify-start">
-              <span className="inline-flex items-center gap-1 rounded-sm border border-success/40 bg-success/10 px-2 py-1 text-[11px] font-medium text-success">
-                <span className="size-1.5 rounded-full bg-success motion-safe:animate-pulse" />
-                {USER.availability}
-              </span>
+            <div className="flex items-center justify-end gap-2 sm:justify-start">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button
+                    type="button"
+                    className="rounded-sm border border-info/60 bg-info/12 px-2.5 py-1 text-xs font-medium text-info transition-colors hover:bg-info/20"
+                  >
+                    Hire Me
+                  </button>
+                </DropdownMenuTrigger>
 
-              <a
-                href={PRIMARY_CTA}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-sm border border-info/60 bg-info/12 px-2.5 py-1 text-xs font-medium text-info transition-colors hover:bg-info/20"
-              >
-                Hire Me
-              </a>
+                <DropdownMenuContent align="end" sideOffset={8}>
+                  <DropdownMenuItem asChild>
+                    <a href={LINKEDIN_CTA} target="_blank" rel="noreferrer">
+                      <Icons.linkedin className="size-3.5" />
+                      LinkedIn
+                    </a>
+                  </DropdownMenuItem>
+
+                  <DropdownMenuItem asChild>
+                    <a href={X_CTA} target="_blank" rel="noreferrer">
+                      <Icons.x className="size-3.5" />X
+                    </a>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
         </div>

@@ -32,6 +32,11 @@ export type User = {
     company: string;
     website: string;
   }[];
+  /** Highlighted project shown in overview */
+  currentProject?: {
+    name: string;
+    url: string;
+  };
   /** Rich about section; supports Markdown */
   about: string;
   /** Public URL to avatar image */

@@ -67,6 +67,23 @@ export function Overview() {
             </IntroItemContent>
           </IntroItem>
 
+          {USER.currentProject && (
+            <IntroItem>
+              <IntroItemIcon>
+                <GlobeIcon />
+              </IntroItemIcon>
+              <IntroItemContent>
+                Currently building:{" "}
+                <IntroItemLink
+                  href={USER.currentProject.url}
+                  aria-label={`Current project: ${USER.currentProject.name}`}
+                >
+                  {USER.currentProject.name}
+                </IntroItemLink>
+              </IntroItemContent>
+            </IntroItem>
+          )}
+
           <IntroItem>
             <IntroItemIcon>
               {USER.gender === "male" ? <MarsIcon /> : <VenusIcon />}

@@ -52,6 +52,7 @@
 
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display);
 
   --shadow-popover: var(--shadow-popover);
 
@@ -80,6 +81,68 @@
       opacity: 1;
     }
     to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes cover-glow-pan {
+    from {
+      transform: translate3d(-2%, -1%, 0) scale(1);
+      opacity: 0.72;
+    }
+    to {
+      transform: translate3d(2%, 1%, 0) scale(1.08);
+      opacity: 0.9;
+    }
+  }
+
+  @keyframes cover-grain-shift {
+    0% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(-3%, 2%);
+    }
+    50% {
+      transform: translate(2%, -2%);
+    }
+    75% {
+      transform: translate(-2%, -1%);
+    }
+    100% {
+      transform: translate(1%, 2%);
+    }
+  }
+
+  @keyframes goku-aura-pulse {
+    0%,
+    100% {
+      transform: translate(-50%, -50%) scale(0.84);
+      opacity: 0.32;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.18);
+      opacity: 0.58;
+    }
+  }
+
+  @keyframes goku-dash-flicker {
+    0%,
+    100% {
+      opacity: 0.12;
+    }
+    50% {
+      opacity: 0.42;
+    }
+  }
+
+  @keyframes goku-catch-burst {
+    0% {
+      transform: translate(-50%, -50%) scale(0.35);
+      opacity: 0.88;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1.8);
       opacity: 0;
     }
   }

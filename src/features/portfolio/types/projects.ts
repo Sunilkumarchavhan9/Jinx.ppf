@@ -18,6 +18,12 @@ export type Project = {
   skills: string[];
   /** Optional rich description; Markdown and line breaks supported. */
   description?: string;
+  /** Optional headline impact metric shown in the case-study card. */
+  impact?: string;
+  /** Optional short challenge statement for case-study framing. */
+  challenge?: string;
+  /** Optional short outcome statement for case-study framing. */
+  outcome?: string;
   /** Logo image URL (absolute or path under /public). */
   logo?: string;
   /** Whether the project card is expanded by default in the UI. */

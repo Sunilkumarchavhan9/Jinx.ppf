@@ -1,3 +1,6 @@
+import fs from "node:fs/promises";
+import path from "node:path";
+
 import { NextResponse } from "next/server";
 import sharp from "sharp";
 import VCard from "vcard-creator";
@@ -38,23 +41,12 @@ export async function GET() {
 
 async function getVCardPhoto(url: string) {
   try {
-    const res = await fetch(url);
-
-    if (!res.ok) {
+    const imageBuffer = await getImageBuffer(url);
+    if (!imageBuffer) {
       return null;
     }
 
-    const buffer = Buffer.from(await res.arrayBuffer());
-    if (buffer.length === 0) {
-      return null;
-    }
-
-    const contentType = res.headers.get("Content-Type") || "";
-    if (!contentType.startsWith("image/")) {
-      return null;
-    }
-
-    const jpegBuffer = await convertImageToJpeg(buffer);
+    const jpegBuffer = await convertImageToJpeg(imageBuffer);
     const image = jpegBuffer.toString("base64");
 
     return {
@@ -64,6 +56,31 @@ async function getVCardPhoto(url: string) {
   } catch {
     return null;
   }
+}
+
+async function getImageBuffer(url: string): Promise<Buffer | null> {
+  if (url.startsWith("/")) {
+    const filePath = path.join(process.cwd(), "public", url.slice(1));
+    try {
+      const buffer = await fs.readFile(filePath);
+      return buffer.length > 0 ? buffer : null;
+    } catch {
+      return null;
+    }
+  }
+
+  const res = await fetch(url);
+  if (!res.ok) {
+    return null;
+  }
+
+  const contentType = res.headers.get("Content-Type") || "";
+  if (!contentType.startsWith("image/")) {
+    return null;
+  }
+
+  const buffer = Buffer.from(await res.arrayBuffer());
+  return buffer.length > 0 ? buffer : null;
 }
 
 async function convertImageToJpeg(imageBuffer: Buffer): Promise<Buffer> {

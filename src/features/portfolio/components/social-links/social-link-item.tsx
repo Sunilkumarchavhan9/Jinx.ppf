@@ -8,7 +8,7 @@ export function SocialLinkItem({ icon, title, description, href }: SocialLink) {
   return (
     <a
       className={cn(
-        "group/link flex cursor-pointer items-center gap-4 p-4 pr-2 transition-colors hover:bg-accent2",
+        "group/link flex cursor-pointer items-center gap-4 border border-transparent p-4 pr-2 transition-all duration-200 hover:-translate-y-px hover:border-edge hover:bg-accent2 hover:shadow-[0_10px_30px_-20px_rgba(2,6,23,0.45)]",
         "max-sm:screen-line-before max-sm:screen-line-after",
         "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
       )}

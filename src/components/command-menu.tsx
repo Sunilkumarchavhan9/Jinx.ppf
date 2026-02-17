@@ -3,8 +3,10 @@
 import { useCommandState } from "cmdk";
 import type { LucideProps } from "lucide-react";
 import {
+  BriefcaseBusinessIcon,
   CornerDownLeftIcon,
   DownloadIcon,
+  MailIcon,
   MoonStarIcon,
   RssIcon,
   SunMediumIcon,
@@ -30,9 +32,11 @@ import {
 } from "@/components/ui/command";
 import type { Post } from "@/features/blog/types/post";
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links";
+import { USER } from "@/features/portfolio/data/user";
 import { useSound } from "@/hooks/use-sound";
 import { trackEvent } from "@/lib/events";
 import { copyText } from "@/utils/copy";
+import { decodeEmail } from "@/utils/string";
 
 import { ComponentIcon, Icons } from "./icons";
 import { ChanhDaiMark, getMarkSVG } from "./sunil-mark";
@@ -123,6 +127,38 @@ const SOCIAL_LINK_ITEMS: CommandLinkItem[] = SOCIAL_LINKS.map((item) => ({
   iconImage: item.icon,
   openInNewTab: true,
 }));
+
+const LINKEDIN_LINK =
+  SOCIAL_LINKS.find((item) => item.title === "LinkedIn")?.href || USER.website;
+const GITHUB_LINK =
+  SOCIAL_LINKS.find((item) => item.title === "GitHub")?.href ||
+  "https://github.com/Sunilkumarchavhan9";
+const CONTACT_ACTIONS: CommandLinkItem[] = [
+  {
+    title: "Hire Me (LinkedIn)",
+    href: LINKEDIN_LINK,
+    icon: BriefcaseBusinessIcon,
+    openInNewTab: true,
+  },
+  {
+    title: "Email Me",
+    href: `mailto:${decodeEmail(USER.email)}`,
+    icon: MailIcon,
+    openInNewTab: true,
+  },
+  {
+    title: "Open GitHub",
+    href: GITHUB_LINK,
+    icon: Icons.github,
+    openInNewTab: true,
+  },
+  {
+    title: "Download Resume",
+    href: USER.resumeUrl || "/vcard",
+    icon: DownloadIcon,
+    openInNewTab: true,
+  },
+];
 
 export function CommandMenu({ posts }: { posts: Post[] }) {
   const router = useRouter();
@@ -273,6 +309,14 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
           <CommandLinkGroup
             heading="Portfolio"
             links={PORTFOLIO_LINKS}
+            onLinkSelect={handleOpenLink}
+          />
+
+          <CommandSeparator />
+
+          <CommandLinkGroup
+            heading="Quick Actions"
+            links={CONTACT_ACTIONS}
             onLinkSelect={handleOpenLink}
           />
 
@@ -476,6 +520,12 @@ function buildCommandMetaMap() {
   });
 
   SOCIAL_LINK_ITEMS.forEach((item) => {
+    commandMetaMap.set(item.title, {
+      commandKind: "link",
+    });
+  });
+
+  CONTACT_ACTIONS.forEach((item) => {
     commandMetaMap.set(item.title, {
       commandKind: "link",
     });

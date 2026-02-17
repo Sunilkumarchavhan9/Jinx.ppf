@@ -1,5 +1,6 @@
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
 
+import { SITE_INFO } from "@/config/site";
 import { About } from "@/features/portfolio/components/about";
 import { Awards } from "@/features/portfolio/components/awards";
 import { Blog } from "@/features/portfolio/components/blog";
@@ -12,8 +13,10 @@ import { ProfileCover } from "@/features/portfolio/components/profile-cover";
 import { ProfileHeader } from "@/features/portfolio/components/profile-header";
 import { Projects } from "@/features/portfolio/components/projects";
 import { SocialLinks } from "@/features/portfolio/components/social-links";
+import { SocialProofStrip } from "@/features/portfolio/components/social-proof-strip";
 import { TeckStack } from "@/features/portfolio/components/teck-stack";
 import { TestimonialsMarquee } from "@/features/portfolio/components/testimonials-marquee";
+import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links";
 import { USER } from "@/features/portfolio/data/user";
 import { cn } from "@/lib/utils";
 
@@ -30,6 +33,7 @@ export default function Page() {
       <div className="mx-auto md:max-w-3xl *:[[id]]:scroll-mt-22">
         <ProfileCover />
         <ProfileHeader />
+        <SocialProofStrip />
         <Separator />
 
         <Overview />
@@ -73,16 +77,35 @@ export default function Page() {
 }
 
 function getPageJsonLd(): WithContext<PageSchema> {
+  const sameAs = Array.from(
+    new Set([USER.website, ...SOCIAL_LINKS.map((link) => link.href)])
+  );
+  const imageUrl = USER.avatar.startsWith("http")
+    ? USER.avatar
+    : `${SITE_INFO.url}${USER.avatar}`;
+
   return {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
+    url: SITE_INFO.url,
+    inLanguage: "en",
     dateCreated: new Date(USER.dateCreated).toISOString(),
     dateModified: new Date().toISOString(),
     mainEntity: {
       "@type": "Person",
       name: USER.displayName,
+      givenName: USER.firstName,
+      familyName: USER.lastName,
       identifier: USER.username,
-      image: USER.avatar,
+      description: USER.bio,
+      jobTitle: USER.jobTitle,
+      url: SITE_INFO.url,
+      image: imageUrl,
+      sameAs,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: USER.address,
+      },
     },
   };
 }

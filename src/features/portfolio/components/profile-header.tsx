@@ -1,8 +1,18 @@
+import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links";
 import { USER } from "@/features/portfolio/data/user";
 import { FlipSentences } from "@/registry/flip-sentences";
 
 import { PronounceMyName } from "./pronounce-my-name";
 import { VerifiedIcon } from "./verified-icon";
+
+const TRUST_BADGES = [
+  "5x Hackathon Winner",
+  "Top 4 Solana Finalist",
+  "GitHub Campus Expert",
+] as const;
+
+const PRIMARY_CTA =
+  SOCIAL_LINKS.find((link) => link.title === "LinkedIn")?.href || USER.website;
 
 export function ProfileHeader() {
   return (
@@ -69,7 +79,7 @@ export function ProfileHeader() {
 
         <div className="border-t border-edge">
           <div className="flex items-center gap-2 pl-4">
-            <h1 className="-translate-y-px text-3xl font-semibold">
+            <h1 className="-translate-y-px [font-family:var(--font-display)] text-3xl font-semibold tracking-tight">
               {USER.displayName}
             </h1>
 
@@ -96,6 +106,35 @@ export function ProfileHeader() {
             >
               {USER.flipSentences}
             </FlipSentences>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-between gap-2 border-t border-edge p-2 pl-4">
+            <div className="flex flex-wrap items-center gap-2">
+              {TRUST_BADGES.map((badge) => (
+                <span
+                  key={badge}
+                  className="rounded-sm border border-border bg-muted/70 px-2 py-0.5 font-mono text-[11px] text-foreground/85"
+                >
+                  {badge}
+                </span>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center gap-1 rounded-sm border border-success/40 bg-success/10 px-2 py-1 text-[11px] font-medium text-success">
+                <span className="size-1.5 rounded-full bg-success motion-safe:animate-pulse" />
+                {USER.availability}
+              </span>
+
+              <a
+                href={PRIMARY_CTA}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-sm border border-info/60 bg-info/12 px-2.5 py-1 text-xs font-medium text-info transition-colors hover:bg-info/20"
+              >
+                Hire Me
+              </a>
+            </div>
           </div>
         </div>
       </div>

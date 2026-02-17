@@ -2,9 +2,9 @@ import type { Experience } from "../types/experiences";
 
 export const EXPERIENCES: Experience[] = [
   {
-    id: "rektoff",
+    id: "turbin3",
     companyName: "TURBIN3",
-    companyLogo: "https://www.turbin3.org/images/turbin3.svg",
+    companyLogo: "https://turbin3.org/turbin3-logo.svg",
     positions: [
       {
         id: "",

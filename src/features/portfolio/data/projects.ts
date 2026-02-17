@@ -8,6 +8,11 @@ export const PROJECTS: Project[] = [
       start: "02.2026",
     },
     link: "https://20-poly.vercel.app/",
+    impact: "Live market engine with on-chain settlement",
+    challenge:
+      "Sports prediction UX usually feels like betting, not real-time market trading.",
+    outcome:
+      "Designed a probability-driven trading flow where users can enter and exit positions live before event resolution.",
     skills: [
       "Solana",
       "Prediction Markets",
@@ -42,6 +47,11 @@ For the best experience, open on PC or laptop. The current build is not optimize
       end: "02.2026",
     },
     link: "https://landingpage-roan-rho.vercel.app/",
+    impact: "End-to-end token lifecycle in one launchpad",
+    challenge:
+      "Launching a token often requires multiple fragmented tools and high setup overhead.",
+    outcome:
+      "Built one workflow for minting, liquidity operations, and swaps with modular React components for fast integration.",
     skills: [
       "Solana",
       "Token Launchpad",
@@ -74,6 +84,11 @@ The project also includes modular React components for each feature to keep the 
       start: "2025",
     },
     link: "https://x.com/FrostbytHitsuG/status/2002446039656378833?s=20",
+    impact: "Real-time AML alerting bot for blockchain monitoring",
+    challenge:
+      "Compliance teams needed instant, actionable risk alerts across EVM and Solana activity.",
+    outcome:
+      "Implemented webhook-driven alerts with Telegram delivery and Prisma-backed tracking for faster compliance response.",
     skills: [
       "TypeScript",
       "Telegram Bot API",

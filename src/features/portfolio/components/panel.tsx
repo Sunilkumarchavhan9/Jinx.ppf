@@ -38,7 +38,10 @@ function PanelTitle({
   return (
     <Comp
       data-slot="panel-title"
-      className={cn("text-3xl font-semibold", className)}
+      className={cn(
+        "[font-family:var(--font-display)] text-3xl font-semibold tracking-tight",
+        className
+      )}
       {...props}
     />
   );

@@ -57,7 +57,9 @@ export async function generateMetadata({
   if (isNaN(updatedAt.getTime())) updatedAt = new Date();
 
   const postUrl = `/components/${post.slug}`;
-  const ogImage = image || `/og/simple?title=${encodeURIComponent(title)}`;
+  const ogImage =
+    image ||
+    `/og/portfolio?title=${encodeURIComponent(title)}&kicker=Component&metric=${encodeURIComponent(SITE_INFO.name)}`;
 
   return {
     title,
@@ -99,7 +101,7 @@ function getPageJsonLd(post: Post): WithContext<PageSchema> {
     description: post.metadata.description,
     image:
       post.metadata.image ||
-      `/og/simple?title=${encodeURIComponent(post.metadata.title)}`,
+      `/og/portfolio?title=${encodeURIComponent(post.metadata.title)}&kicker=Component&metric=${encodeURIComponent(SITE_INFO.name)}`,
     url: `${SITE_INFO.url}/components/${post.slug}`,
     datePublished: createdAt.toISOString(),
     dateModified: updatedAt.toISOString(),

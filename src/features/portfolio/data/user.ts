@@ -7,18 +7,20 @@ export const USER: User = {
   username: "Chavhan",
   gender: "male",
   pronouns: "he/him",
-  bio: "Full-Stack & Blockchain Polymath. Building Web2 × Web3 systems.",
+  bio: "I build production-ready Web2 x Web3 products with Next.js, Node.js, Solana, and Rust.",
   flipSentences: [
-    "Full-Stack Developer",
-    "Blockchain Engineer",
-    "Solana Builder",
+    "Full-Stack + Blockchain Engineer",
+    "Shipping production-ready dApps",
+    "Building on Solana + TypeScript",
     "5x Hackathon Winner",
   ],
   address: "Bengaluru",
   phoneNumber: "NjM2MzY5NzYwMA==", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
   email: "Y2hhdmhhbnN1bmlsa3VtYXI3NTNAZ21haWwuY29t", // base64 encoded
-  website: "https://x.com/FrostbytHitsuG",
-  jobTitle: "Polymath Developer",
+  website: "https://jinxdev-tau.vercel.app",
+  jobTitle: "Full-Stack & Blockchain Engineer",
+  availability: "Open to freelance and internship roles",
+  resumeUrl: "/resume",
   jobs: [
     {
       title: "Web-2 and Web-3 Polymath Developer",
@@ -49,5 +51,5 @@ I have been a 5x Hackathon Winner and Top 4 Solana Hackathon Finalist, selected 
     "nextjs",
     "typescript",
   ],
-  dateCreated: "2025-11-2", // YYYY-MM-DD
+  dateCreated: "2025-11-02", // YYYY-MM-DD
 };

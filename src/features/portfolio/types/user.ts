@@ -22,6 +22,10 @@ export type User = {
   website: string;
   /** Primary/current role shown on profile */
   jobTitle: string;
+  /** Work availability message (e.g., "Open to freelance projects") */
+  availability: string;
+  /** Optional resume URL for direct download/view */
+  resumeUrl?: string;
   /** Work history entries */
   jobs: {
     title: string;

@@ -3,8 +3,8 @@ import type { NavItem } from "@/types/nav";
 
 export const SITE_INFO = {
   name: USER.displayName,
-  url: process.env.APP_URL || "https://chanhdai.com",
-  ogImage: USER.ogImage,
+  url: process.env.APP_URL || "https://jinxdev-tau.vercel.app",
+  ogImage: `/og/portfolio?title=${encodeURIComponent(USER.displayName)}&kicker=Portfolio&metric=${encodeURIComponent(USER.jobTitle)}`,
   description: USER.bio,
   keywords: USER.keywords,
 };

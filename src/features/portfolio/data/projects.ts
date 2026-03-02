@@ -40,6 +40,61 @@ For the best experience, open on PC or laptop. The current build is not optimize
     isExpanded: true,
   },
   {
+    id: "stake-up",
+    title: "StakeUp - Commitment Product on Solana",
+    period: {
+      start: "03.2026",
+    },
+    link: "https://stake-up.vercel.app/",
+    impact: "Goal-based SOL staking with automatic on-chain settlement",
+    challenge:
+      "Habit tracking alone does not create enough accountability when users can ignore the outcome without consequences.",
+    outcome:
+      "Built a commitment product where users lock SOL against real-world goals and smart contract rules return or reroute funds based on verified completion.",
+    skills: [
+      "Solana",
+      "Anchor",
+      "Smart Contracts",
+      "Web3",
+      "On-chain Vaults",
+      "PDAs",
+      "Commitment Product",
+      "Goal Verification",
+      "Automatic Settlement",
+      "React",
+    ],
+    description: `StakeUp is a Solana-based commitment product that lets users bet SOL on themselves.
+
+Core concept:
+- A user sets a real-world goal, such as running 100 km in a week
+- The user locks SOL into an on-chain vault tied to that goal
+- The funds create financial accountability
+
+How it works:
+- If the user completes the goal and it is verified, the staked SOL is returned
+- If the user fails, the stake is routed to a pre-selected charity or franchise wallet
+- Settlement happens through smart contract rules, not manual custody
+
+Why it is different:
+- It is not just a habit tracker
+- It attaches real financial consequences to goal completion
+- It combines personal discipline, on-chain custody, transparent verification, and automatic fallback routing
+
+On-chain concept:
+- Built with Anchor on Solana
+- Each goal creates a goal PDA, a vault PDA holding funds, and recipient / verifier state
+- The program enforces deadline-based verification, condition-based release, and one-time settlement
+
+Trust model:
+- Users can submit manual progress
+- Verified progress can come from a backend verifier flow
+- The final outcome is controlled by explicit verifier logic, not unchecked user claims alone
+
+[Live Demo](https://stake-up.vercel.app/)
+[GitHub Repository](https://github.com/Sunilkumarchavhan9/StakeUp)`,
+    isExpanded: true,
+  },
+  {
     id: "sol-token-launch-pad",
     title: "Sol Token Launch Pad",
     period: {
